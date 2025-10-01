@@ -64,7 +64,7 @@
             "@php artisan test"
         ],
         "lint": [
-            "./vendor/bin/phpstan analyse",
+            "./vendor/bin/phpstan analyse --memory-limit=1G",
             "./vendor/bin/duster lint"
         ],
         "fix": [

@@ -2,8 +2,10 @@
 
 namespace Modules\Order\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Modules\Order\Database\Factories\OrderFactory;
 
 class Order extends Model
 {
@@ -20,9 +22,8 @@ class Order extends Model
         'notes',
     ];
 
-    protected static function newFactory()
+    protected static function newFactory(): Factory
     {
-        return \Modules\Order\Database\Factories\OrderFactory::new();
+        return OrderFactory::new();
     }
-
 }

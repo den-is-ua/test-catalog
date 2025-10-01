@@ -31,26 +31,26 @@ test('admin can view creation page', function () {
         ->assertOk();
 });
 
-    it('can create an order', function () {
-        $order = Order::factory()->make();
+it('can create an order', function () {
+    $order = Order::factory()->make();
 
-        livewire(CreateOrder::class)
-            ->fillForm([
-                'username' => $order->username,
-                'phone' => $order->phone,
-                'total_amount' => $order->total_amount,
-                'status' => $order->status,
-                'address' => $order->address,
-                'notes' => $order->notes,
-            ])
-            ->call('create')
-            ->assertNotified()
-            ->assertRedirect();
-
-        assertDatabaseHas(Order::class, [
+    livewire(CreateOrder::class)
+        ->fillForm([
             'username' => $order->username,
             'phone' => $order->phone,
             'total_amount' => $order->total_amount,
             'status' => $order->status,
-        ]);
-    });
+            'address' => $order->address,
+            'notes' => $order->notes,
+        ])
+        ->call('create')
+        ->assertNotified()
+        ->assertRedirect();
+
+    assertDatabaseHas(Order::class, [
+        'username' => $order->username,
+        'phone' => $order->phone,
+        'total_amount' => $order->total_amount,
+        'status' => $order->status,
+    ]);
+});

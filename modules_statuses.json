@@ -1,4 +1,5 @@
 {
     "Order": true,
-    "Catalog": true
+    "Catalog": true,
+    "Common": true
 }

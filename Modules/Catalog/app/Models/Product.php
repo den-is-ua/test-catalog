@@ -10,6 +10,16 @@ class Product extends Model
 {
     use HasFactory;
 
+    /**
+     * Ensure Laravel discovers the factory located inside the module.
+     *
+     * @return \Illuminate\Database\Eloquent\Factories\Factory
+     */
+    protected static function newFactory()
+    {
+        return \Modules\Catalog\Database\Factories\ProductFactory::new();
+    }
+
     protected $table = 'products';
 
     protected $fillable = [

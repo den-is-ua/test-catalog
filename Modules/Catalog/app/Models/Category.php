@@ -11,6 +11,16 @@ class Category extends Model
 {
     use HasFactory;
 
+    /**
+     * Ensure Laravel discovers the factory located inside the module.
+     *
+     * @return \Illuminate\Database\Eloquent\Factories\Factory
+     */
+    protected static function newFactory()
+    {
+        return \Modules\Catalog\Database\Factories\CategoryFactory::new();
+    }
+
     protected $table = 'categories';
 
     protected $fillable = [

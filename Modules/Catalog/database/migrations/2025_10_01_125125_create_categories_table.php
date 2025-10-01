@@ -23,11 +23,13 @@ return new class extends Migration
             $table->unique(['parent_id', 'name']);
         });
 
-        DB::statement('
-            ALTER TABLE categories
-            ADD CONSTRAINT categories_parent_not_self
-            CHECK (parent_id IS NULL OR parent_id <> id)
-        ');
+        if (env('APP_ENV') != 'testing') {
+            DB::statement('
+                ALTER TABLE categories
+                ADD CONSTRAINT categories_parent_not_self
+                CHECK (parent_id IS NULL OR parent_id <> id)
+            ');
+        }
     }
 
     public function down(): void

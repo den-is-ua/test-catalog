@@ -29,6 +29,10 @@ Run server
 * Open your browser with `test-catalog.dev` or `127.0.0.1` address 
 * Go into container: `docker exec -it catalog-app bash`
 
+# Commands
+```
+composer analyse #Run larastan
+```
 
 # DB
 ### Connection to local client

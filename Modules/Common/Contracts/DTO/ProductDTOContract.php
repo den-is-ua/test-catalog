@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Models\Common\Contracts;
+namespace Models\Common\Contracts\DTO;
 
 
 

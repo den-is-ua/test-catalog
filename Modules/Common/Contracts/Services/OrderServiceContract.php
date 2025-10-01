@@ -2,9 +2,8 @@
 
 declare(strict_types=1);
 
-namespace Modules\Common\Contracts;
+namespace Modules\Common\Contracts\Services;
 
-use Modules\Common\Contracts\CatalogServiceContract;
 
 interface OrderServiceContract
 {

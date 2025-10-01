@@ -32,6 +32,7 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
             ->discoverResources(in: base_path('Modules/Catalog/app/Admin/Resources'), for: 'Modules\\Catalog\\Admin\\Resources')
+            ->discoverResources(in: base_path('Modules/Order/app/Admin/Resources'), for: 'Modules\\Order\\Admin\\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')
             ->pages([
                 Pages\Dashboard::class,

@@ -14,7 +14,7 @@ COPY ./php/php.ini "$PHP_INI_DIR/php.ini"
 RUN apt-get update \
  && apt-get upgrade -y \
  && apt-get install -y zip unzip git curl \
- && install-php-extensions pdo_pgsql pgsql zip igbinary xhprof \
+ && install-php-extensions pdo_pgsql pgsql zip igbinary xhprof intl \
  && rm -rf /var/lib/apt/lists/*
 
  # Composer (if you want it available inside container)

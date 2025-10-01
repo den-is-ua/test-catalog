@@ -32,6 +32,8 @@ Run server
 # Commands
 ```
 composer lint #Run larastan, duster
+composer fix #Run duster fix
+
 ```
 
 # DB

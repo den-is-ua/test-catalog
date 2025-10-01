@@ -66,6 +66,9 @@
         "lint": [
             "./vendor/bin/phpstan analyse",
             "./vendor/bin/duster lint"
+        ],
+        "fix": [
+            "./vendor/bin/duster fix"
         ]
     },
     "extra": {

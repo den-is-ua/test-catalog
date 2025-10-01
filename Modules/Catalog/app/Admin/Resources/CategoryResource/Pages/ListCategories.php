@@ -3,8 +3,8 @@
 namespace Modules\Catalog\Admin\Resources\CategoryResource\Pages;
 
 use Filament\Actions\CreateAction;
-use Modules\Catalog\Admin\Resources\CategoryResource;
 use Filament\Resources\Pages\ListRecords;
+use Modules\Catalog\Admin\Resources\CategoryResource;
 
 class ListCategories extends ListRecords
 {
@@ -13,7 +13,7 @@ class ListCategories extends ListRecords
     protected function getActions(): array
     {
         return [
-            CreateAction::make()
+            CreateAction::make(),
         ];
     }
 }

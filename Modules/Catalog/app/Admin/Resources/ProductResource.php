@@ -8,9 +8,14 @@ use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Actions\DeleteAction;
+use Filament\Tables\Actions\DeleteBulkAction;
+use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Columns\TextColumn;
+use Modules\Catalog\Admin\Resources\ProductResource\Pages\CreateProduct;
+use Modules\Catalog\Admin\Resources\ProductResource\Pages\EditProduct;
+use Modules\Catalog\Admin\Resources\ProductResource\Pages\ListProducts;
 use Modules\Catalog\Models\Product;
-use Modules\Catalog\Admin\Resources\ProductResource\Pages;
 
 class ProductResource extends Resource
 {
@@ -19,7 +24,6 @@ class ProductResource extends Resource
     protected static ?string $navigationIcon = 'heroicon-o-cube';
     protected static ?string $navigationGroup = 'Catalog';
 
-    
     public static function form(Forms\Form $form): Forms\Form
     {
         return $form
@@ -64,20 +68,20 @@ class ProductResource extends Resource
             ->defaultSort('id')
             ->filters([])
             ->actions([
-                Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
+                EditAction::make(),
+                DeleteAction::make(),
             ])
             ->bulkActions([
-                Tables\Actions\DeleteBulkAction::make(),
+                DeleteBulkAction::make(),
             ]);
     }
 
     public static function getPages(): array
     {
         return [
-            'index'  => Pages\ListProducts::route('/'),
-            'create' => Pages\CreateProduct::route('/create'),
-            'edit'   => Pages\EditProduct::route('/{record}/edit'),
+            'index' => ListProducts::route('/'),
+            'create' => CreateProduct::route('/create'),
+            'edit' => EditProduct::route('/{record}/edit'),
         ];
     }
 }

@@ -2,8 +2,8 @@
 
 namespace Modules\Catalog\Admin\Resources\ProductResource\Pages;
 
-use Modules\Catalog\Admin\Resources\ProductResource;
 use Filament\Resources\Pages\CreateRecord;
+use Modules\Catalog\Admin\Resources\ProductResource;
 
 class CreateProduct extends CreateRecord
 {

@@ -7,9 +7,14 @@ use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Actions\DeleteAction;
+use Filament\Tables\Actions\DeleteBulkAction;
+use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Columns\TextColumn;
+use Modules\Catalog\Admin\Resources\CategoryResource\Pages\CreateCategory;
+use Modules\Catalog\Admin\Resources\CategoryResource\Pages\EditCategory;
+use Modules\Catalog\Admin\Resources\CategoryResource\Pages\ListCategories;
 use Modules\Catalog\Models\Category;
-use Modules\Catalog\Admin\Resources\CategoryResource\Pages;
 
 class CategoryResource extends Resource
 {
@@ -17,7 +22,6 @@ class CategoryResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-c-list-bullet';
     protected static ?string $navigationGroup = 'Catalog';
-
 
     public static function form(Forms\Form $form): Forms\Form
     {
@@ -47,20 +51,20 @@ class CategoryResource extends Resource
             ->defaultSort('id')
             ->filters([])
             ->actions([
-                Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
+                EditAction::make(),
+                DeleteAction::make(),
             ])
             ->bulkActions([
-                Tables\Actions\DeleteBulkAction::make(),
+                DeleteBulkAction::make(),
             ]);
     }
 
     public static function getPages(): array
     {
         return [
-            'index'  => Pages\ListCategories::route('/'),
-            'create' => Pages\CreateCategory::route('/create'),
-            'edit'   => Pages\EditCategory::route('/{record}/edit'),
+            'index' => ListCategories::route('/'),
+            'create' => CreateCategory::route('/create'),
+            'edit' => EditCategory::route('/{record}/edit'),
         ];
     }
 }

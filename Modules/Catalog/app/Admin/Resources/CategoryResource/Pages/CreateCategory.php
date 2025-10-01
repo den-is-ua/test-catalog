@@ -2,8 +2,8 @@
 
 namespace Modules\Catalog\Admin\Resources\CategoryResource\Pages;
 
-use Modules\Catalog\Admin\Resources\CategoryResource;
 use Filament\Resources\Pages\CreateRecord;
+use Modules\Catalog\Admin\Resources\CategoryResource;
 
 class CreateCategory extends CreateRecord
 {

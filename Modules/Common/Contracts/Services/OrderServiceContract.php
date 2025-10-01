@@ -6,11 +6,12 @@ namespace Modules\Common\Contracts\Services;
 
 use Modules\Common\Contracts\DTO\OrderDTOContract;
 
-
 interface OrderServiceContract
 {
     public function store(OrderDTOContract $order);
+
     public function update(int $orderId, OrderDTOContract $order);
+
     public function show(int $orderId);
 
     public function get(int $orderId);

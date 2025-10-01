@@ -18,14 +18,6 @@ class CategoryResource extends Resource
     protected static ?string $navigationIcon = 'heroicon-c-list-bullet';
     protected static ?string $navigationGroup = 'Catalog';
 
-    
-    protected function getHeaderActions(): array
-    {
-        return [
-            $this->getCreateFormAction()
-                ->formId('form'),
-        ];
-    }
 
     public static function form(Forms\Form $form): Forms\Form
     {

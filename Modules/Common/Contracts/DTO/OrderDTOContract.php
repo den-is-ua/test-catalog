@@ -13,6 +13,6 @@ interface OrderDTOContract
     public function getUserPhone(): string;
     public function getUserAddress(): string;
 
-    /** @return OrderProductDTOContract[]; **/
+    /** @return OrderProductDTOContract[] **/
     public function getProducts(): array;
 }

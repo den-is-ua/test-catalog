@@ -19,14 +19,7 @@ class ProductResource extends Resource
     protected static ?string $navigationIcon = 'heroicon-o-cube';
     protected static ?string $navigationGroup = 'Catalog';
 
-    protected function getHeaderActions(): array
-    {
-        return [
-            $this->getCreateFormAction()
-                ->formId('form'),
-        ];
-    }
-
+    
     public static function form(Forms\Form $form): Forms\Form
     {
         return $form

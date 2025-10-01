@@ -23,7 +23,7 @@ return new class extends Migration
             $table->unique(['parent_id', 'name']);
         });
 
-        if (env('APP_ENV') != 'testing') {
+        if (config('app.env') != 'testing') {
             DB::statement('
                 ALTER TABLE categories
                 ADD CONSTRAINT categories_parent_not_self

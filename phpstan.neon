@@ -13,6 +13,7 @@ parameters:
 
     ignoreErrors:
         - '/Parameter #1 \$view of function view expects view-string\|null, string given\./'
+        - '/Call to an undefined method Illuminate\\Testing\\TestResponse\:\:assertCanSeeTableRecords\(\)\./'
 #
 #    excludePaths:
 #        - ./*/*/FileToBeExcluded.php

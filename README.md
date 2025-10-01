@@ -25,7 +25,7 @@ Run server
 ./run-services.sh
 ```
 
-Open your browser with `test-catalog.dev` address 
+Open your browser with `test-catalog.dev` or `127.0.0.1` address 
 
 # DB
 ### Connection to local client

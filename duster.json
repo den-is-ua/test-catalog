@@ -1,0 +1,19 @@
+{
+  "include": [
+    "app",
+    "bootstrap",
+    "config",
+    "database",
+    "lang",
+    "public/*.php",
+    "routes",
+    "tests"
+  ],
+  "exclude": [
+    "vendor/**",
+    "storage/**",
+    "node_modules/**",
+    "bootstrap/cache/**"
+  ],
+  "processTimeout": 120
+}

@@ -31,7 +31,7 @@ Run server
 
 # Commands
 ```
-composer analyse #Run larastan
+composer lint #Run larastan, duster
 ```
 
 # DB

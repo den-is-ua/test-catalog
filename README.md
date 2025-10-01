@@ -20,12 +20,15 @@ Add to hosts: `127.0.0.1 test-catalog.dev`
 nano /etc/hosts
 ```
 
+# Run project
 Run server
 ```bash
 ./run-services.sh
 ```
 
-Open your browser with `test-catalog.dev` or `127.0.0.1` address 
+* Open your browser with `test-catalog.dev` or `127.0.0.1` address 
+* Go into container: `docker exec -it catalog-app bash`
+
 
 # DB
 ### Connection to local client

@@ -3,8 +3,8 @@
 namespace Modules\Catalog\Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Modules\Catalog\Models\Product;
 use Modules\Catalog\Models\Category;
+use Modules\Catalog\Models\Product;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\Modules\Catalog\Models\Product>
@@ -20,8 +20,6 @@ class ProductFactory extends Factory
 
     /**
      * Define the model's default state.
-     *
-     * @return array
      */
     public function definition(): array
     {

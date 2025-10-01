@@ -1,13 +1,15 @@
 <?php
 
-use Modules\Catalog\Admin\Resources\ProductResource\Pages\ListProducts;
-use Modules\Catalog\Admin\Resources\ProductResource\Pages\CreateProduct;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use App\Models\User;
-use Modules\Catalog\Models\Product;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Modules\Catalog\Admin\Resources\ProductResource\Pages\CreateProduct;
+use Modules\Catalog\Admin\Resources\ProductResource\Pages\ListProducts;
 use Modules\Catalog\Models\Category;
-use function Pest\Laravel\{actingAs, assertDatabaseHas};
-use function Pest\Livewire\{livewire};
+use Modules\Catalog\Models\Product;
+
+use function Pest\Laravel\actingAs;
+use function Pest\Laravel\assertDatabaseHas;
+use function Pest\Livewire\livewire;
 
 uses(Tests\TestCase::class);
 uses(RefreshDatabase::class);
@@ -39,7 +41,7 @@ it('can create a product', function () {
             'category_id' => $category->id,
             'name' => $product->name,
             'price' => $product->price,
-            'qty' => $product->qty
+            'qty' => $product->qty,
         ])
         ->call('create')
         ->assertNotified()

@@ -2,24 +2,16 @@
 
 namespace Modules\Catalog\Models;
 
+use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Modules\Catalog\Database\Factories\CategoryFactory;
 
 class Category extends Model
 {
     use HasFactory;
-
-    /**
-     * Ensure Laravel discovers the factory located inside the module.
-     *
-     * @return \Illuminate\Database\Eloquent\Factories\Factory
-     */
-    protected static function newFactory()
-    {
-        return \Modules\Catalog\Database\Factories\CategoryFactory::new();
-    }
 
     protected $table = 'categories';
 
@@ -27,6 +19,11 @@ class Category extends Model
         'parent_id',
         'name',
     ];
+
+    protected static function newFactory(): Factory
+    {
+        return CategoryFactory::new();
+    }
 
     /**
      * Parent category (nullable).

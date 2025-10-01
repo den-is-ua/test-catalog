@@ -1,12 +1,14 @@
 <?php
 
-use Modules\Catalog\Admin\Resources\CategoryResource\Pages\ListCategories;
-use Modules\Catalog\Admin\Resources\CategoryResource\Pages\CreateCategory;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use App\Models\User;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Modules\Catalog\Admin\Resources\CategoryResource\Pages\CreateCategory;
+use Modules\Catalog\Admin\Resources\CategoryResource\Pages\ListCategories;
 use Modules\Catalog\Models\Category;
-use function Pest\Laravel\{actingAs, assertDatabaseHas};
-use function Pest\Livewire\{livewire};
+
+use function Pest\Laravel\actingAs;
+use function Pest\Laravel\assertDatabaseHas;
+use function Pest\Livewire\livewire;
 
 uses(Tests\TestCase::class);
 uses(RefreshDatabase::class);

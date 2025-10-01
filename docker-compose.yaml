@@ -1,0 +1,41 @@
+services:
+    catalog-web:  
+        image: httpd:2.4
+        container_name: catalog-web
+        volumes:
+            - ./.docker/Catalog/apache/httpd.conf:/usr/local/apache2/conf/httpd.conf
+            - ./public:/app/public
+            - ./storage/app/public:/app/storage/app/public
+        ports:
+            - "127.0.0.1:80:80"
+        hostname: test-catalog.dev
+        networks:
+            - test-catalog-nw
+        depends_on:
+            - catalog-app
+    catalog-app:
+        build: ./.docker/Catalog
+        container_name: catalog-app
+        volumes:
+            - .:/app:rw
+        networks:
+            - test-catalog-nw
+        depends_on:
+            - db
+        working_dir: /app
+
+    db:
+        image: postgres:17.6
+        restart: always
+        container_name: catalog-db
+        volumes:
+            - ./.docker/postgresql:/var/lib/postgresql/data
+        environment:
+            POSTGRES_PASSWORD: secret
+        ports:
+            -   "127.0.0.1:5444:5432"
+        networks:
+            - test-catalog-nw
+
+networks:
+    test-catalog-nw:

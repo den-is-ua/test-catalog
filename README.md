@@ -1,0 +1,35 @@
+# Test Project
+Build a catalog system with ordering functionality. The system contains two modules: Catalog (Categories + Products) and Orders. The Orders module cannot use the Catalog module directly. The site includes both an admin and a client part.
+
+### Requirements
+* Laravel 12
+* nwidart/laravel-modules package for module management
+* Livewire 3.x for interactive frontend components
+* Filament 3.x for admin interfaces
+* PostgreSQL database
+* Pest 3 testing framework
+
+# Setup
+Open terminal under root project
+```bash
+./install-with-docker.sh
+```
+
+Add to hosts: `127.0.0.1 test-catalog.dev`
+```bash
+nano /etc/hosts
+```
+
+Run server
+```bash
+./run-services.sh
+```
+
+Open your browser with `test-catalog.dev` address 
+
+# DB
+### Connection to local client
+* Host: 127.0.0.1
+* Port: 5444
+* Username: postgres
+* Password: secret

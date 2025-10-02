@@ -6,10 +6,9 @@ namespace Modules\Common\Contracts\Services;
 
 use Modules\Common\Contracts\DTO\ProductDTOContract;
 
-interface ProductServiceContract {
-
+interface ProductServiceContract
+{
     /**
-     *  
      * @return ProductDTOContract[]
      */
     public function getAllProducts(): array;

@@ -13,7 +13,7 @@ class OrderProductDTO implements OrderProductDTOContract
         public string $name,
         public int $price,
         public int $qty
-    ){}
+    ) {}
 
     public function getId(): int
     {

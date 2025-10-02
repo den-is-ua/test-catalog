@@ -13,6 +13,12 @@ class Product extends Model implements ProductDTOContract
 {
     use HasFactory;
 
+    public int $id;
+    public string $name;
+    public string $description;
+    public int $price;
+    public int $qty;
+
     protected $table = 'products';
 
     protected $fillable = [
@@ -22,6 +28,11 @@ class Product extends Model implements ProductDTOContract
         'description',
         'qty',
     ];
+
+    protected static function newFactory(): Factory
+    {
+        return ProductFactory::new();
+    }
 
     public function getId(): int
     {
@@ -46,11 +57,6 @@ class Product extends Model implements ProductDTOContract
     public function getQty(): int
     {
         return $this->qty;
-    }
-
-    protected static function newFactory(): Factory
-    {
-        return ProductFactory::new();
     }
 
     /**

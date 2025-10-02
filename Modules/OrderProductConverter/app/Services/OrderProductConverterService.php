@@ -4,17 +4,14 @@ declare(strict_types=1);
 
 namespace Modules\OrderProductConverter\Services;
 
-use Models\Common\Contracts\DTO\ProductDTOContract;
-use Modules\Common\Contracts\OrderProductConverterContract;
+use Modules\Common\Contracts\DTO\ProductDTOContract;
+use Modules\Common\Contracts\Services\OrderProductConverterContract;
 use Modules\Common\Contracts\Services\ProductServiceContract;
 use Modules\Common\DTO\OrderProductDTO;
 
 class OrderProductConverterService implements OrderProductConverterContract
 {
-    public function __construct(private ProductServiceContract $productService)
-    {
-
-    }
+    public function __construct(private ProductServiceContract $productService) {}
 
     /**
      * @return OrderProductDTO[]
@@ -23,7 +20,7 @@ class OrderProductConverterService implements OrderProductConverterContract
     {
         $productsToConvert = $this->productService->getAllProducts();
 
-        $products = array_map(function(ProductDTOContract $item) {
+        $products = array_map(function (ProductDTOContract $item) {
             return new OrderProductDTO(
                 $item->getId(),
                 $item->getName(),
@@ -35,4 +32,3 @@ class OrderProductConverterService implements OrderProductConverterContract
         return $products;
     }
 }
-

@@ -13,10 +13,10 @@ class CategoryList extends Component
 {
     public ?int $activeId = null;
 
-    public function select(?int $id): void
+    public function select(?int $id = null): void
     {
         $this->activeId = $id;
-        // Tell other components about the change
+        
         $this->dispatch('category-selected', id: $id);
     }
 
@@ -25,6 +25,8 @@ class CategoryList extends Component
         $categories = Category::query()
             ->orderByDesc('id')
             ->get();
+
+        $categories->unshift(new Category(['id' => null, 'name' => 'All categories']));
 
         return view('catalog::livewire.category-list', compact('categories'));
     }

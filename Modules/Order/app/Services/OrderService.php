@@ -15,13 +15,6 @@ class OrderService
      */
     public static function saveOrder(string $username, string $address, $phone, $notes, Collection $products): void
     {
-        $order = Order::create([
-            'username' => $username,
-            'phone' => $phone,
-            'address' => $address,
-            'notes' => $notes,
-        ]);
-
         $productsToSave = $products->map(function (OrderProductDTOContract $item) {
             return [
                 'product_id' => $item->getProductId(),
@@ -30,6 +23,14 @@ class OrderService
                 'qty' => $item->getQty(),
             ];
         });
+
+        $order = Order::create([
+            'username' => $username,
+            'phone' => $phone,
+            'address' => $address,
+            'notes' => $notes,
+            'total_amount' => $productsToSave->sum('price'),
+        ]);
 
         $order->items()->createMany($productsToSave);
     }

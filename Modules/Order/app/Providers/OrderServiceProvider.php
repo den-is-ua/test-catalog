@@ -30,7 +30,6 @@ class OrderServiceProvider extends ServiceProvider
         $this->registerViews();
         $this->loadMigrationsFrom(module_path($this->name, 'database/migrations'));
 
-        $this->loadRoutesFrom(__DIR__ . '/../../routes/web.php');
         $this->loadViewsFrom(module_path($this->name, 'resources/views'), 'order');
 
         Livewire::component('order.order-form', OrderForm::class);
@@ -41,7 +40,6 @@ class OrderServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this->app->register(EventServiceProvider::class);
         $this->app->register(RouteServiceProvider::class);
     }
 

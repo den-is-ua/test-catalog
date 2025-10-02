@@ -8,16 +8,15 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Modules\Catalog\Models\Product;
 use Modules\Common\DTO\OrderProductDTO;
 use Modules\OrderProductConverter\Services\OrderProductConverterService;
+use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
 
 class OrderProductConverterServiceTest extends TestCase
 {
     use RefreshDatabase;
 
-    /**
-     * @test
-     */
-    public function test_get_all_products(): void
+    #[Test()]
+    public function get_all_products(): void
     {
         Product::factory()->count(10)->create();
         $orderProductConverterService = resolve(OrderProductConverterService::class);

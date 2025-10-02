@@ -10,6 +10,10 @@ Build a catalog system with ordering functionality. The system contains two modu
 * Pest 3 testing framework
 
 # Setup
+```bash
+git clone https://github.com/den-is-ua/test-catalog.git test-store.dev
+cd test-store.dev
+```
 Open terminal under root project
 ```bash
 ./install-with-docker.sh
@@ -35,9 +39,16 @@ Run server
 ```
 # Ensure what you under catalog-app container!
 
+# Lint
 composer lint #Run larastan, duster
+
+# Fix codestyle
 composer fix #Run duster fix
+
+# Test
 composer test #Run tests
+
+# Seeders
 php artisan module:seed Catalog
 php artisan module:seed Order
 ```

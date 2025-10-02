@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 use Livewire\Livewire;
 use Modules\Catalog\Store\Livewire\CategoryList;
+use Modules\Catalog\Store\Livewire\ProductGrid;
 use Nwidart\Modules\Traits\PathNamespace;
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
@@ -34,7 +35,7 @@ class CatalogServiceProvider extends ServiceProvider
         $this->loadViewsFrom(module_path($this->name, 'resources/views'), 'catalog');
 
         Livewire::component('catalog.category-list', CategoryList::class);
-        // Livewire::component('shop.product-grid', \Modules\Shop\Livewire\ProductGrid::class);
+        Livewire::component('catalog.product-grid', ProductGrid::class);
     }
 
     /**

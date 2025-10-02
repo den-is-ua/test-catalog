@@ -36,7 +36,7 @@ class OrderProductConverterServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this->app->bind(OrderProductConverterContract::class, OrderProductConverterService::class);
+        
     }
 
     /**

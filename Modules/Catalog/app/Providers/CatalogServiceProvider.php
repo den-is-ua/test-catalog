@@ -45,8 +45,6 @@ class CatalogServiceProvider extends ServiceProvider
     public function register(): void
     {
         $this->app->register(RouteServiceProvider::class);
-
-        $this->app->bind(ProductServiceContract::class, ProductService::class);
     }
 
     /**

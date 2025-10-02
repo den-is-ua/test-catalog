@@ -3,16 +3,15 @@
 namespace Modules\Catalog\Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Modules\Catalog\Models\Category;
 
-class CatalogDatabaseSeeder extends Seeder
+class CategorySeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        $this->call([
-            CategorySeeder::class
-        ]);
+        Category::factory()->count(100)->state(['parent_id' => null])->create();
     }
 }

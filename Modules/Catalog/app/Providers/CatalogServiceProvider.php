@@ -31,7 +31,7 @@ class CatalogServiceProvider extends ServiceProvider
         $this->loadMigrationsFrom(module_path($this->name, 'database/migrations'));
 
         $this->loadRoutesFrom(__DIR__.'/../../routes/web.php');
-        $this->loadViewsFrom(__DIR__.'/../../resources/views', 'catalog');
+        $this->loadViewsFrom(module_path($this->name, 'resources/views'), 'catalog');
 
         Livewire::component('catalog.category-list', CategoryList::class);
         // Livewire::component('shop.product-grid', \Modules\Shop\Livewire\ProductGrid::class);

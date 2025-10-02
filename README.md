@@ -15,6 +15,7 @@ Open terminal under root project
 ./install-with-docker.sh
 ```
 
+Optioanal
 Add to hosts: `127.0.0.1 test-catalog.dev`
 ```bash
 nano /etc/hosts
@@ -33,7 +34,9 @@ Run server
 ```
 composer lint #Run larastan, duster
 composer fix #Run duster fix
-
+composer test #Run tests
+php artisan module:seed Catalog
+php artisan module:seed Order
 ```
 
 # DB

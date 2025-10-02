@@ -15,6 +15,7 @@ class OrderItemFactory extends Factory
     public function definition(): array
     {
         return [
+            'product_id' => $this->faker->randomDigit(),
             'name' => $this->faker->name(),
             'price' => $this->faker->numberBetween(1, 100),
             'qty' => $this->faker->numberBetween(1, 10),

@@ -28,10 +28,13 @@ Run server
 ```
 
 * Open your browser with `test-catalog.dev` or `127.0.0.1` address 
+* Onen admin panel by path: `/admin`. Use credentials for email/password: `superuser@gmail.com`/`secret`
 * Go into container: `docker exec -it catalog-app bash`
 
 # Commands
 ```
+# Ensure what you under catalog-app container!
+
 composer lint #Run larastan, duster
 composer fix #Run duster fix
 composer test #Run tests
@@ -45,3 +48,21 @@ php artisan module:seed Order
 * Port: 5444
 * Username: postgres
 * Password: secret
+
+# Architectural solution
+### Goal
+
+Keep Order and Catalog independent. Order must never touch Catalog’s models directly. We achieve this via a small adapter module and shared contracts/DTOs.
+
+### Modules and dependencies
+Commons: hosts interfaces and DTO contracts only. No Eloquent.
+OrderProductConverter (adapter): implements the Common interfaces by mapping Catalog data → OrderProductDTO.
+Order: depends only on the interfaces + DTOs from Common.
+Using service container functional to bind interfaces with implementation
+```php
+public function register(): void
+{
+    $this->app->bind(OrderProductConverterContract::class, OrderProductConverterService::class);
+    $this->app->bind(ProductServiceContract::class, ProductService::class);
+}
+```

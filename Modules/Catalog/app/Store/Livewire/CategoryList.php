@@ -7,8 +7,6 @@ namespace Modules\Catalog\Store\Livewire;
 use Livewire\Component;
 use Modules\Catalog\Models\Category;
 
-
-
 class CategoryList extends Component
 {
     public ?int $activeId = null;
@@ -16,7 +14,7 @@ class CategoryList extends Component
     public function select(?int $id = null): void
     {
         $this->activeId = $id;
-        
+
         $this->dispatch('category-selected', id: $id);
     }
 

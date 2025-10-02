@@ -11,7 +11,7 @@
                     <flux:navlist.group :heading="__('Catalog')" class="grid">
                         <flux:navlist.item icon="list-bullet" :href="route('catalog.index')" wire:navigate>{{ __('Catalog') }}</flux:navlist.item>
                     </flux:navlist.group>
-                </flux:navlist>  
+                </flux:navlist>
 
         </flux:sidebar>
 

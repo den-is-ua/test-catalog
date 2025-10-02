@@ -30,7 +30,7 @@ class CatalogServiceProvider extends ServiceProvider
         $this->registerViews();
         $this->loadMigrationsFrom(module_path($this->name, 'database/migrations'));
 
-        $this->loadRoutesFrom(__DIR__.'/../../routes/web.php');
+        $this->loadRoutesFrom(__DIR__ . '/../../routes/web.php');
         $this->loadViewsFrom(module_path($this->name, 'resources/views'), 'catalog');
 
         Livewire::component('catalog.category-list', CategoryList::class);

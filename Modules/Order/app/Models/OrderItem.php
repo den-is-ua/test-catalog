@@ -12,6 +12,7 @@ class OrderItem extends Model implements OrderProductDTOContract
     use HasFactory;
 
     protected $fillable = [
+        'product_id',
         'name',
         'price',
         'qty',

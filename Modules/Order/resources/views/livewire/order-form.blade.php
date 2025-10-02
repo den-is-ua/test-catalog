@@ -3,6 +3,12 @@
     <h2 class="text-base font-semibold">Create Order</h2>
 
     <div class="rounded-2xl border bg-white/70 dark:bg-zinc-900/70 shadow-sm">
+      {{-- success alert (flash) --}}
+      @if (session('success'))
+        <div class="mb-4 rounded-xl border border-green-300 bg-green-50 text-green-800 p-3">
+          {{ session('success') }}
+        </div>
+      @endif
       <form wire:submit.prevent="submit" class="p-4 sm:p-6 space-y-4" wire:loading.attr="disabled">
         {{-- Name --}}
         <div>
@@ -88,17 +94,17 @@
 
         {{-- Notes --}}
         <div>
-          <label for="product_ids" class="block text-sm font-medium mb-1">Products</label>
-          <select>
-            id="product_ids"
-            wire:model="product_ids"
+          <label for="productIds" class="block text-sm font-medium mb-1">Products</label>
+          <select multiple
+            id="productIds"
+            wire:model="productIds"
             @class([
               'w-full rounded-xl border px-3 py-2 text-sm shadow-sm outline-none transition focus:ring-2',
               'bg-white dark:bg-zinc-900 border-zinc-300 dark:border-zinc-700 focus:border-indigo-500 focus:ring-indigo-500',
-              'border-red-500 focus:border-red-500 focus:ring-red-500' => $errors->has('product_ids'),
+              'border-red-500 focus:border-red-500 focus:ring-red-500' => $errors->has('productIds'),
             ])
-            aria-invalid="{{ $errors->has('product_ids') ? 'true' : 'false' }}"
-            aria-describedby="{{ $errors->has('product_ids') ? 'notes-error' : '' }}"
+            aria-invalid="{{ $errors->has('productIds') ? 'true' : 'false' }}"
+            aria-describedby="{{ $errors->has('productIds') ? 'notes-error' : '' }}"
           >
             @foreach ($products as $product)
 
@@ -106,8 +112,8 @@
 
             @endforeach
         </select>
-          @error('product_ids')
-            <span id="product_ids-error" class="mt-1 block text-xs text-red-600">{{ $message }}</span>
+          @error('productIds')
+            <span id="productIds-error" class="mt-1 block text-xs text-red-600">{{ $message }}</span>
           @enderror
         </div>
 

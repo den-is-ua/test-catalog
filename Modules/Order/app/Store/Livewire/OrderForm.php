@@ -6,6 +6,8 @@ namespace Modules\Order\Store\Livewire;
 
 use Livewire\Component;
 use Modules\Common\Contracts\Services\OrderProductConverterContract;
+use Modules\Order\Models\Order;
+use Modules\Order\Services\OrderService;
 
 class OrderForm extends Component
 {
@@ -16,12 +18,12 @@ class OrderForm extends Component
     public $productIds;
 
     protected $rules = [
-        'username' => 'required|string|min:3',
-        'phone' => 'required|numeric|length:10',
-        'address' => 'required|string|max:1000',
-        'notes' => 'nullable|string|max:1000',
-        'product_ids' => 'required|array',
-        'product_ids.*' => 'required|numeric|min:1',
+        'username'     => ['required','string','min:3','max:255'],
+        'phone'        => ['required', 'digits:10'],       
+        'address'      => ['required','string','max:1000'],
+        'notes'        => ['nullable','string','max:1000'],
+        'productIds'   => ['required','array','min:1'],
+        'productIds.*' => ['integer','distinct'],
     ];
 
     private OrderProductConverterContract $orderProductConverter;
@@ -36,6 +38,19 @@ class OrderForm extends Component
         $this->validate();
 
         $products = $this->orderProductConverter->getProductsByIds($this->productIds);
+
+        OrderService::saveOrder(
+            $this->username, 
+            $this->address, 
+            $this->phone, 
+            $this->notes, 
+            $products
+        );
+
+        $this->reset(['username','phone','address','notes','productIds']);
+        $this->resetValidation();
+
+        session()->flash('success', 'Order sent successfully.');
     }
 
     public function render()

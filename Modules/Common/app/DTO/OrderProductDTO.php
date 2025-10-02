@@ -9,7 +9,7 @@ use Modules\Common\Contracts\DTO\OrderProductDTOContract;
 class OrderProductDTO implements OrderProductDTOContract
 {
     public function __construct(
-        public int $id,
+        public int $productId,
         public string $name,
         public int $price,
         public int $qty
@@ -17,7 +17,7 @@ class OrderProductDTO implements OrderProductDTOContract
 
     public function getProductId(): int
     {
-        return $this->id;
+        return $this->productId;
     }
 
     public function getName(): string

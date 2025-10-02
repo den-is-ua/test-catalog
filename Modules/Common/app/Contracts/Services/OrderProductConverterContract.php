@@ -11,5 +11,5 @@ interface OrderProductConverterContract
     /**
      * @return OrderProductDTOContract[]
      */
-    public function getAllProducts(): array;
+    public function getAllProducts(): iterable;
 }

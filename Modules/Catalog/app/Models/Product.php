@@ -13,11 +13,6 @@ class Product extends Model implements ProductDTOContract
 {
     use HasFactory;
 
-    public int $id;
-    public string $name;
-    public string $description;
-    public int $price;
-    public int $qty;
 
     protected $table = 'products';
 
@@ -36,27 +31,27 @@ class Product extends Model implements ProductDTOContract
 
     public function getId(): int
     {
-        return $this->id;
+        return $this->attributes['id'];
     }
 
     public function getName(): string
     {
-        return $this->name;
+        return $this->attributes['name'];
     }
 
     public function getDescription(): string
     {
-        return $this->description;
+        return $this->attributes['description'];
     }
 
     public function getPrice(): int
     {
-        return $this->price;
+        return $this->attributes['price'];
     }
 
     public function getQty(): int
     {
-        return $this->qty;
+        return $this->attributes['qty'];
     }
 
     /**

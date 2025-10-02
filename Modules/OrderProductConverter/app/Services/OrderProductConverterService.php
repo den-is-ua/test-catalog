@@ -16,18 +16,18 @@ class OrderProductConverterService implements OrderProductConverterContract
     /**
      * @return OrderProductDTO[]
      */
-    public function getAllProducts(): array
+    public function getAllProducts(): iterable
     {
         $productsToConvert = $this->productService->getAllProducts();
 
-        $products = array_map(function (ProductDTOContract $item) {
+        $products = $productsToConvert->map(function(ProductDTOContract $item) {
             return new OrderProductDTO(
                 $item->getId(),
                 $item->getName(),
                 $item->getPrice(),
                 $item->getQty()
-            );
-        }, $productsToConvert);
+            );      
+        });
 
         return $products;
     }

@@ -5,6 +5,8 @@ namespace Modules\OrderProductConverter\Providers;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 use Nwidart\Modules\Traits\PathNamespace;
+use Modules\Common\Contracts\Services\OrderProductConverterContract;
+use Modules\OrderProductConverter\Services\OrderProductConverterService;
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
 
@@ -34,8 +36,7 @@ class OrderProductConverterServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        // $this->app->register(EventServiceProvider::class);
-        // $this->app->register(RouteServiceProvider::class);
+        $this->app->bind(OrderProductConverterContract::class, OrderProductConverterService::class);
     }
 
     /**

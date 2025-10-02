@@ -5,7 +5,9 @@ namespace Modules\Catalog\Providers;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 use Livewire\Livewire;
+use Modules\Catalog\Services\ProductService;
 use Modules\Catalog\Store\Livewire\CategoryList;
+use Modules\Common\Contracts\Services\ProductServiceContract;
 use Modules\Catalog\Store\Livewire\ProductGrid;
 use Nwidart\Modules\Traits\PathNamespace;
 use RecursiveDirectoryIterator;
@@ -45,6 +47,8 @@ class CatalogServiceProvider extends ServiceProvider
     {
         $this->app->register(EventServiceProvider::class);
         $this->app->register(RouteServiceProvider::class);
+
+        $this->app->bind(ProductServiceContract::class, ProductService::class);
     }
 
     /**

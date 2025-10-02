@@ -4,8 +4,6 @@ namespace Modules\OrderProductConverter\Providers;
 
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
-use Modules\Common\Contracts\Services\OrderProductConverterContract;
-use Modules\OrderProductConverter\Services\OrderProductConverterService;
 use Nwidart\Modules\Traits\PathNamespace;
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
@@ -34,10 +32,7 @@ class OrderProductConverterServiceProvider extends ServiceProvider
     /**
      * Register the service provider.
      */
-    public function register(): void
-    {
-        
-    }
+    public function register(): void {}
 
     /**
      * Register translations.

@@ -102,7 +102,7 @@
           >
             @foreach ($products as $product)
 
-            <option value="{{ $product->getId() }}">{{ $product->getName() . '. Price: ' . $product->getPrice() . 'uah' }}</option>
+            <option value="{{ $product->getProductId() }}">{{ $product->getName() . '. Price: ' . $product->getPrice() . 'uah' }}</option>
 
             @endforeach
         </select>

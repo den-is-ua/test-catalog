@@ -18,4 +18,9 @@ class ProductService implements ProductServiceContract
     {
         return Product::all();
     }
+
+    public function getProductsByIds(array $productIds): iterable
+    {
+        return Product::findMany($productIds);
+    }
 }

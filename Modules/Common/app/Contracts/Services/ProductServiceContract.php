@@ -13,4 +13,9 @@ interface ProductServiceContract
      * @return ProductDTOContract[]|Collection
      */
     public function getAllProducts(): iterable;
+
+    /**
+     * @return ProductDTOContract[]|Collection
+     */
+    public function getProductsByIds(array $productIds): iterable;
 }

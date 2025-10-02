@@ -13,12 +13,15 @@ class OrderForm extends Component
     public $phone;
     public $address;
     public $notes;
+    public $productIds;
 
     protected $rules = [
         'username' => 'required|string|min:3',
         'phone' => 'required|numeric|length:10',
         'address' => 'required|string|max:1000',
         'notes' => 'nullable|string|max:1000',
+        'product_ids' => 'required|array',
+        'product_ids.*' => 'required|numeric|min:1'
     ];
 
     private OrderProductConverterContract $orderProductConverter;
@@ -32,7 +35,7 @@ class OrderForm extends Component
     {
         $this->validate();
 
-        // @todo: implement order creation logic
+        $products = $this->orderProductConverter->getProductsByIds($this->productIds);
     }
 
     public function render()

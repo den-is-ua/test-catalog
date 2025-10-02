@@ -6,7 +6,7 @@ namespace Modules\Common\Contracts\DTO;
 
 interface OrderProductDTOContract
 {
-    public function getId(): int;
+    public function getProductId(): int;
 
     public function getName(): string;
 

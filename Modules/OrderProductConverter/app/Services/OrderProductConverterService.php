@@ -20,15 +20,27 @@ class OrderProductConverterService implements OrderProductConverterContract
     {
         $productsToConvert = $this->productService->getAllProducts();
 
-        $products = $productsToConvert->map(function (ProductDTOContract $item) {
-            return new OrderProductDTO(
+        $products = $productsToConvert->map(fn($item) => $this->converterCallback($item));
+
+        return $products;
+    }
+
+    public function getProductsByIds(array $productIds): iterable
+    {
+        $productsToConvert = $this->productService->getProductsByIds($productIds);
+
+        $products = $productsToConvert->map(fn($item) => $this->converterCallback($item));
+
+        return $products;
+    }
+
+    private function converterCallback(ProductDTOContract $item)
+    {
+        return new OrderProductDTO(
                 $item->getId(),
                 $item->getName(),
                 $item->getPrice(),
                 $item->getQty()
             );
-        });
-
-        return $products;
     }
 }

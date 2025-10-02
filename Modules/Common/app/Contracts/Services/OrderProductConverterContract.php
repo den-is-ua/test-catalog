@@ -12,4 +12,9 @@ interface OrderProductConverterContract
      * @return OrderProductDTOContract[]
      */
     public function getAllProducts(): iterable;
+
+    /**
+     * @return OrderProductDTOContract[]
+     */
+    public function getProductsByIds(array $productIds): iterable;
 }

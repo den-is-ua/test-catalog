@@ -15,7 +15,7 @@ class OrderProductDTO implements OrderProductDTOContract
         public int $qty
     ) {}
 
-    public function getId(): int
+    public function getProductId(): int
     {
         return $this->id;
     }

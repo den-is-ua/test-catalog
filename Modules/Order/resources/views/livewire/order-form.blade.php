@@ -103,7 +103,7 @@
             @foreach ($products as $product)
 
             <option value="{{ $product->getId() }}">{{ $product->getName() . '. Price: ' . $product->getPrice() . 'uah' }}</option>
-              
+
             @endforeach
         </select>
           @error('product_ids')

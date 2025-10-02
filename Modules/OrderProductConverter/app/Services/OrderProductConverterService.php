@@ -20,13 +20,13 @@ class OrderProductConverterService implements OrderProductConverterContract
     {
         $productsToConvert = $this->productService->getAllProducts();
 
-        $products = $productsToConvert->map(function(ProductDTOContract $item) {
+        $products = $productsToConvert->map(function (ProductDTOContract $item) {
             return new OrderProductDTO(
                 $item->getId(),
                 $item->getName(),
                 $item->getPrice(),
                 $item->getQty()
-            );      
+            );
         });
 
         return $products;

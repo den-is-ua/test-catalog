@@ -13,7 +13,6 @@ class Product extends Model implements ProductDTOContract
 {
     use HasFactory;
 
-
     protected $table = 'products';
 
     protected $fillable = [

@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Modules\Common\Contracts\Services;
 
+use Illuminate\Support\Collection;
 use Modules\Common\Contracts\DTO\ProductDTOContract;
-use \Illuminate\Support\Collection;
 
 interface ProductServiceContract
 {

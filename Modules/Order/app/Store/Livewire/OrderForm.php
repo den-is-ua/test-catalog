@@ -13,7 +13,6 @@ class OrderForm extends Component
     public $phone;
     public $address;
     public $notes;
-    private OrderProductConverterContract $orderProductConverter;
 
     protected $rules = [
         'username' => 'required|string|min:3',
@@ -21,6 +20,8 @@ class OrderForm extends Component
         'address' => 'required|string|max:1000',
         'notes' => 'nullable|string|max:1000',
     ];
+
+    private OrderProductConverterContract $orderProductConverter;
 
     public function boot(OrderProductConverterContract $orderProductConverter)
     {
@@ -37,6 +38,7 @@ class OrderForm extends Component
     public function render()
     {
         $products = $this->orderProductConverter->getAllProducts();
+
         return view('order::livewire.order-form', compact('products'));
     }
 }

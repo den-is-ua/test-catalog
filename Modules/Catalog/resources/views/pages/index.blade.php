@@ -1,11 +1,10 @@
 <x-layouts.app>
-    <div class="grid md:grid-cols-4 gap-6">
-        <aside class="md:col-span-1">
+    <div class="flex md:flex-row w-full space-x-2">
+         <div class="w-[30%]">
             <livewire:catalog.category-list />
-        </aside>
-
-        <main class="md:col-span-3">
+        </div>
+        <div class="w-[70%]">
             <livewire:catalog.product-grid />
-        </main>
+        </div>
     </div>
 </x-layouts.app>

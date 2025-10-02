@@ -2,7 +2,7 @@
   <div class="space-y-3">
     <h2 class="text-base font-semibold">Products</h2>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+    <div class="flex-col space-y-3">
       @forelse($products as $product)
         <article
           wire:key="prod-{{ $product->id }}"

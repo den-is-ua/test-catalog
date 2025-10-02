@@ -27,7 +27,7 @@ class ProductFactory extends Factory
             // Associate a category using the Category factory by default.
             'category_id' => Category::factory(),
             'name' => $this->faker->unique()->words(3, true),
-            'price' => $this->faker->randomFloat(2, 1, 1000),
+            'price' => $this->faker->randomNumber(),
             'description' => $this->faker->optional()->paragraph(),
             'qty' => $this->faker->numberBetween(0, 100),
         ];

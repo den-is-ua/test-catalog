@@ -1,4 +1,4 @@
-<div class="w-full max-w-sm">
+<div class="w-full">
   <div class="space-y-3">
     <h2 class="text-base font-semibold">Categories</h2>
 

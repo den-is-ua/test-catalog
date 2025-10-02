@@ -6,16 +6,13 @@ namespace Modules\Order\Services;
 
 use Modules\Common\Contracts\DTO\OrderProductDTOContract;
 use Modules\Order\Models\Order;
-use \Modules\Common\Contracts\DTO\ProductDTOContract;
 
-
-
-class OrderService  
+class OrderService
 {
     /**
-     * @param OrderProductDTOContract[] $products
+     * @param  OrderProductDTOContract[]  $products
      */
-    public static function saveOrder(string $username, string $address, $phone, $notes, iterable $products): bool
+    public static function saveOrder(string $username, string $address, $phone, $notes, iterable $products): void
     {
         $order = Order::create([
             'username' => $username,
@@ -29,10 +26,10 @@ class OrderService
                 'product_id' => $item->getProductId(),
                 'name' => $item->getName(),
                 'price' => $item->getPrice(),
-                'qty' => $item->getQty()
+                'qty' => $item->getQty(),
             ];
-        },$products);
+        }, $products);
 
-        return $order->orderItems()->createMany($productsToSave);
+        $order->items()->createMany($productsToSave);
     }
 }

@@ -21,7 +21,7 @@ class OrderForm extends Component
         'address' => 'required|string|max:1000',
         'notes' => 'nullable|string|max:1000',
         'product_ids' => 'required|array',
-        'product_ids.*' => 'required|numeric|min:1'
+        'product_ids.*' => 'required|numeric|min:1',
     ];
 
     private OrderProductConverterContract $orderProductConverter;

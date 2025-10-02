@@ -2,8 +2,8 @@
 
 namespace Modules\Order\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 use Modules\Common\Contracts\DTO\OrderProductDTOContract;
 use Modules\Order\Database\Factories\OrderItemFactory;
 
@@ -11,11 +11,10 @@ class OrderItem extends Model implements OrderProductDTOContract
 {
     use HasFactory;
 
-
     protected $fillable = [
         'name',
         'price',
-        'qty'
+        'qty',
     ];
 
     protected static function newFactory(): OrderItemFactory

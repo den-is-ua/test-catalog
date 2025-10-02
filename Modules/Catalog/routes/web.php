@@ -3,6 +3,6 @@
 use Illuminate\Support\Facades\Route;
 use Modules\Catalog\Http\Controllers\CatalogController;
 
-Route::middleware(['auth', 'verified'])->group(function () {
-    Route::resource('catalogs', CatalogController::class)->names('catalog');
+Route::middleware('web')->group(function () {
+    Route::view('/catalog', 'catalog::pages.index')->name('shop.index');
 });

@@ -4,6 +4,8 @@ namespace Modules\Catalog\Providers;
 
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
+use Livewire\Livewire;
+use Modules\Catalog\Store\Livewire\CategoryList;
 use Nwidart\Modules\Traits\PathNamespace;
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
@@ -27,6 +29,12 @@ class CatalogServiceProvider extends ServiceProvider
         $this->registerConfig();
         $this->registerViews();
         $this->loadMigrationsFrom(module_path($this->name, 'database/migrations'));
+
+        $this->loadRoutesFrom(__DIR__.'/../../routes/web.php');
+        $this->loadViewsFrom(__DIR__.'/../../resources/views', 'catalog');
+
+        Livewire::component('catalog.category-list', CategoryList::class);
+        // Livewire::component('shop.product-grid', \Modules\Shop\Livewire\ProductGrid::class);
     }
 
     /**

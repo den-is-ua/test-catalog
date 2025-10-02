@@ -8,3 +8,4 @@ docker exec catalog-app composer install
 docker exec catalog-app cp .env.example .env
 docker exec catalog-app php artisan key:generate
 docker exec catalog-app php artisan migrate
+docker exec catalog-app npm install

@@ -1,5 +1,6 @@
 {
     "Order": true,
     "Catalog": true,
-    "Common": true
+    "Common": true,
+    "OrderProductConverter": true
 }

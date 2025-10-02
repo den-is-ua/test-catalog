@@ -1,5 +1,5 @@
 {
-    "name": "nwidart/common",
+    "name": "nwidart/orderproductconverter",
     "description": "",
     "authors": [
         {
@@ -17,7 +17,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Modules\\Common\\": "app/"
+            "Modules\\OrderProductConverter\\": "app/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Modules\\OrderProductConverter\\Tests\\": "tests/"
         }
     }
 }

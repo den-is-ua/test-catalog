@@ -7,8 +7,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Modules\Catalog\Database\Factories\ProductFactory;
+use Modules\Common\Contracts\DTO\ProductDTOContract;
 
-class Product extends Model
+class Product extends Model implements ProductDTOContract
 {
     use HasFactory;
 
@@ -21,6 +22,31 @@ class Product extends Model
         'description',
         'qty',
     ];
+
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
+    public function getDescription(): string
+    {
+        return $this->description;
+    }
+
+    public function getPrice(): int
+    {
+        return $this->price;
+    }
+
+    public function getQty(): int
+    {
+        return $this->qty;
+    }
 
     protected static function newFactory(): Factory
     {

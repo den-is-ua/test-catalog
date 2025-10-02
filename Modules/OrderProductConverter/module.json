@@ -1,0 +1,11 @@
+{
+    "name": "OrderProductConverter",
+    "alias": "orderproductconverter",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\OrderProductConverter\\Providers\\OrderProductConverterServiceProvider"
+    ],
+    "files": []
+}

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Models\Common\Contracts\DTO;
+namespace Modules\Common\Contracts\DTO;
 
 interface ProductDTOContract
 {

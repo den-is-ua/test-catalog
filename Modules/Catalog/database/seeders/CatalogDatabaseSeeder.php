@@ -22,7 +22,7 @@ class CatalogDatabaseSeeder extends Seeder
             ->count(10)
             ->has(
                 Product::factory()
-                ->count(rand(10, 100))
+                    ->count(rand(10, 100))
             )
             ->create();
     }

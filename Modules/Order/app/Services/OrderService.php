@@ -11,7 +11,7 @@ use Modules\Order\Models\Order;
 class OrderService
 {
     /**
-     * @param  OrderProductDTOContract[]  $products
+     * @param  OrderProductDTOContract[]|Collection  $products
      */
     public static function saveOrder(string $username, string $address, $phone, $notes, Collection $products): void
     {

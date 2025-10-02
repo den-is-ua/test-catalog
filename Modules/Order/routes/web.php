@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Modules\Order\Http\Controllers\OrderController;
 
-Route::middleware(['auth', 'verified'])->group(function () {
-    Route::resource('orders', OrderController::class)->names('order');
+Route::middleware('web')->group(function () {
+    Route::view('create-order', 'order::pages.create')->name(name: 'order.create');
 });
+
